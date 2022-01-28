@@ -1,2 +1,5 @@
 # GithubDesktop_zh
- 【GithubDesktop】中文简体汉化；【GithubDesktop】Chinese localization
+
+# GithubDesktop中文汉化（简体）
+# GithubDesktop Simplified Chinese
+部分英文保留。
