@@ -51588,7 +51588,7 @@ object-assign
                     env: await Ds(t, n.url)
                 };
                 if (r) {
-                    const e = "抓取 " + n.name
+                    const e = "抓取 " + (n.name == "原点" ? "origin" : n.name)
                       , t = "fetch";
                     i = await Cs(Object.assign(Object.assign({}, i), {
                         trackLFSProgress: !0
@@ -52892,7 +52892,7 @@ object-assign
         await $h(["add", "--", "README.md"], n, "tutorial:add"),
         await $h(["commit", "-m", "初始提交"], n, "tutorial:commit");
         const c = {
-            name: "原点",
+            name: "origin",
             url: a.clone_url
         };
         return await $h(["remote", "add", c.name, c.url], n, "tutorial:add-remote"),
@@ -65351,7 +65351,7 @@ PERFORMANCE OF THIS SOFTWARE.
     class Ng extends b.Component {
         render() {
             const e = this.props.remote;
-            return b.createElement(Dg, null, b.createElement("p", null, "主远程存储库 (", e.name, ")"), b.createElement(dm, {
+            return b.createElement(Dg, null, b.createElement("p", null, "主远程存储库 (", (e.name == "原点" ? "origin" : e.name), ")"), b.createElement(dm, {
                 placeholder: "远程URL",
                 value: e.url,
                 onValueChanged: this.props.onRemoteUrlChanged
@@ -65545,7 +65545,7 @@ PERFORMANCE OF THIS SOFTWARE.
         }
         render() {
             return b.createElement("div", null, b.createElement(pm, null, b.createElement(dm, {
-                label: "Name",
+                label: "名字",
                 value: this.props.name,
                 disabled: this.props.disabled,
                 onValueChanged: this.props.onNameChanged
@@ -66801,11 +66801,11 @@ PERFORMANCE OF THIS SOFTWARE.
                 type: "separator"
             }];
             1 === c.length ? d.push({
-                label: "Ignore file (add to .gitignore)",
+                label: "忽略文件(添加到.gitignore文件中去)",
                 action: ()=>this.props.onIgnore(n),
                 enabled: ".gitignore" !== i.basename(n)
             }) : c.length > 1 && d.push({
-                label: `Ignore ${c.length} selected files (add to .gitignore)`,
+                label: `忽略${c.length}选定的文件(添加到.gitignore中去)`,
                 action: ()=>{
                     this.props.onIgnore(c.filter(e=>".gitignore" !== i.basename(e)))
                 }
@@ -66814,7 +66814,7 @@ PERFORMANCE OF THIS SOFTWARE.
             }),
             Array.from(u).slice(0, 5).forEach(e=>{
                 d.push({
-                    label: `Ignore all ${e} files (add to .gitignore)`,
+                    label: `忽略所有${e}文件(添加到.gitignore文件中去)`,
                     action: ()=>this.props.onIgnore("*" + e)
                 })
             }
@@ -66823,7 +66823,7 @@ PERFORMANCE OF THIS SOFTWARE.
             return d.push({
                 type: "separator"
             }, this.getCopyPathMenuItem(e), this.getRevealInFileManagerMenuItem(e), this.getOpenInExternalEditorMenuItem(e, p), {
-                label: "Open with default program",
+                label: "使用默认程序打开",
                 action: ()=>this.props.onOpenItem(n),
                 enabled: p && o
             }),
@@ -66838,7 +66838,7 @@ PERFORMANCE OF THIS SOFTWARE.
             });
             const s = n.kind !== ar.Deleted;
             return o.push(this.getCopyPathMenuItem(e), this.getRevealInFileManagerMenuItem(e), this.getOpenInExternalEditorMenuItem(e, s), {
-                label: "Open with default program",
+                label: "使用默认程序打开",
                 action: ()=>this.props.onOpenItem(t),
                 enabled: s && r
             }),
@@ -68629,7 +68629,7 @@ PERFORMANCE OF THIS SOFTWARE.
             ,
             this.onContextMenu = (e,t)=>{
                 const n = [{
-                    label: "Copy",
+                    label: "复制",
                     action: ()=>{
                         this.onCopy(e, t)
                     }
@@ -70118,8 +70118,8 @@ PERFORMANCE OF THIS SOFTWARE.
                 var e, t;
                 const n = null !== (t = null === (e = window.getSelection()) || void 0 === e ? void 0 : e.toString().length) && void 0 !== t ? t : 0
                   , r = [{
-                    label: "Copy",
-                    role: n > 0 ? "copy" : void 0,
+                    label: "复制",
+                    role: n > 0 ? "复制" : void 0,
                     enabled: n > 0
                 }]
                   , i = this.buildExpandMenuItem();
@@ -71212,10 +71212,10 @@ PERFORMANCE OF THIS SOFTWARE.
                 return log.error("Could not find matching menu item for pull"),
                 null;
             const i = null !== this.props.repository.gitHubRepository
-              , o = b.createElement(b.Fragment, null, "当前分支 (", b.createElement(Lg, null, e.branch.name), ") 有", " ", 1 === n.behind ? "一个提交" : "commits", " on", " ", i ? "GitHub" : "the remote", " that", " ", 1 === n.behind ? "does not" : "do not", " exist on your machine.")
+              , o = b.createElement(b.Fragment, null, "当前分支 (", b.createElement(Lg, null, e.branch.name), ") 有", " ", "提交", "在", " ", i ? "GitHub上" : "远程上", "但是", " ", "不在", "你的PC上")
               , s = b.createElement(b.Fragment, null, "当有远程更改或", " ", this.renderDiscoverabilityKeyboardShortcut(r))
-              , a = `Pull ${n.behind} ${1 === n.behind ? "提交" : "提交"} from the ${t.name} remote`
-              , l = "Pull " + t.name;
+              , a = `在${t.name}上拉取${n.behind}个提交`
+              , l = "拉取" + t.name;
             return b.createElement(jv, {
                 key: "pull-branch-action",
                 title: a,
@@ -71674,7 +71674,7 @@ PERFORMANCE OF THIS SOFTWARE.
         renderShaTooltip() {
             return b.createElement(b.Fragment, null, b.createElement("code", null, this.props.commit.sha), b.createElement("button", {
                 onClick: this.onCopyShaButtonClick
-            }, "Copy"))
+            }, "复制"))
         }
         renderLinesChanged() {
             const e = this.props.changesetData.linesAdded
@@ -72215,7 +72215,7 @@ PERFORMANCE OF THIS SOFTWARE.
             }, b.createElement(yy, {
                 className: o,
                 emoji: this.props.emoji,
-                text: e.summary.startsWith("Add") ? "通过上传添加文件" : e.summary.startsWith("Delete") ? "删除" + e.summary.replace("Delete","") + " 文件" : "创建" + e.summary.replace("Create","") + " 文件",
+                text: e.summary.startsWith("Add") ? "通过上传添加文件" : e.summary.startsWith("Delete") ? "删除" + e.summary.replace("Delete","") + " 文件" : e.summary.startsWith("Update") ? "更新" + e.summary.replace("Update","") + " 文件" : "创建" + e.summary.replace("Create","") + " 文件",
                 renderUrlsAsLinks: !1
             }), b.createElement("div", {
                 className: "description"
@@ -73358,7 +73358,7 @@ PERFORMANCE OF THIS SOFTWARE.
             ,
             this.renderListHeader = ()=>b.createElement("div", {
                 className: "filter-list-group-header"
-            }, "Pull requests in ", this.getRepositoryName()),
+            }, "拉取存储库在", this.getRepositoryName()),
             this.onRefreshPullRequests = ()=>{
                 this.props.dispatcher.refreshPullRequests(this.props.repository)
             }
@@ -75430,22 +75430,22 @@ PERFORMANCE OF THIS SOFTWARE.
         render() {
             return b.createElement(Og, {
                 id: "rename-branch",
-                title: "Rename branch",
+                title: "重命名分支",
                 onDismissed: this.props.onDismissed,
                 onSubmit: this.renameBranch
             }, b.createElement(Dg, null, b.createElement(Gw, {
-                label: "Name",
+                label: "名字",
                 initialValue: this.props.branch.name,
                 onValueChange: this.onNameChange
             }), null != (e = this.props.branch).upstream ? b.createElement(pm, {
                 className: "warning-helper-text"
             }, b.createElement(Gd, {
                 symbol: Vd
-            }), b.createElement("p", null, "This branch is tracking ", b.createElement(Lg, null, e.upstream), " and renaming this branch will not change the branch name on the remote.")) : null, null === this.props.stash ? null : b.createElement(pm, {
+            }), b.createElement("p", null, "此分支正在跟踪", b.createElement(Lg, null, e.upstream), "。并且重命名这个分支不会更改远程上的分支的名字。")) : null, null === this.props.stash ? null : b.createElement(pm, {
                 className: "warning-helper-text"
             }, b.createElement(Gd, {
                 symbol: Vd
-            }), b.createElement("p", null, "Your current stashed changes on this branch will no longer be visible in GitHub Desktop if the branch is renamed."))), b.createElement(Mg, null, b.createElement(Ig, {
+            }), b.createElement("p", null, "如果分支被重命名，您当前在此分支上隐藏的更改将不再在 GitHub Desktop 中可见。"))), b.createElement(Mg, null, b.createElement(Ig, {
                 okButtonText: "Rename " + this.props.branch.name,
                 okButtonDisabled: 0 === this.state.newName.length
             })));
@@ -75898,7 +75898,7 @@ PERFORMANCE OF THIS SOFTWARE.
             }
             const {ahead: d, behind: p} = n;
             return 0 === d && 0 === p && 0 === r ? function(e, t, n, r, i) {
-                const o = "抓取" + e;
+                const o = "抓取" + (e == "原点" ? "origin" : e);
                 return b.createElement(Xw, Object.assign({}, tS, {
                     title: o,
                     description: eS(r),
@@ -75913,7 +75913,7 @@ PERFORMANCE OF THIS SOFTWARE.
                     onClick: i
                 }), Qw(t, n))
             }(i, n, r, l, this.forcePushWithLease) : p > 0 ? function(e, t, n, r, i, o) {
-                const s = i ? `Pull ${e} with rebase` : "Pull " + e;
+                const s = i ? `使用重定位拉取${e}` : "拉取" + e;
                 return b.createElement(Xw, Object.assign({}, tS, {
                     title: s,
                     description: eS(r),
@@ -76520,10 +76520,10 @@ PERFORMANCE OF THIS SOFTWARE.
                 l = "当前分支是 " + i.ref,
                 d = t.allBranches.some(e=>!e.isDesktopForkRemoteBranch);
             else if (i.kind === cr.Detached)
-                a = "On " + i.currentSha.substr(0, 7),
-                l = "Currently on a detached HEAD",
+                a = "在" + i.currentSha.substr(0, 7) + "上",
+                l = "目前在一个分离的 HEAD",
                 c = gp,
-                h = "Detached HEAD";
+                h = "分离HEAD";
             else {
                 if (i.kind !== cr.Valid)
                     return ne(0, "Unknown tip state: " + s);
@@ -76532,22 +76532,22 @@ PERFORMANCE OF THIS SOFTWARE.
             let f = void 0;
             if (n) {
                 if (a = n.targetBranch,
-                h = "Switching to branch",
+                h = "切换到分支中",
                 n.value > 0) {
                     h = `${h} (${Math.round(100 * n.value)}%)`
                 }
-                l = "Switching to " + n.targetBranch,
+                l = "切换到" + n.targetBranch,
                 f = n.value,
                 c = Jp,
                 u = "spin",
                 d = !1
             } else
                 null !== o && Q(o) && (a = o.targetBranch,
-                h = "Rebasing branch",
+                h = "重定位分支中",
                 c = mp,
                 d = !1,
                 p = !0,
-                l = "Rebasing " + o.targetBranch);
+                l = "重定位" + o.targetBranch + "中");
             const m = this.props.isOpen
               , g = m && d ? "open" : "closed"
               , y = pa()("nudge-arrow", {
@@ -90515,7 +90515,7 @@ PERFORMANCE OF THIS SOFTWARE.
             const e = this.state.checks.filter(jb).length > 1 ? "them" : "it";
             return b.createElement("div", {
                 className: "footer-question"
-            }, b.createElement("span", null, "Do you want to switch to that Pull Request now and start fixing", " ", e, "?"))
+            }, b.createElement("span", null, "你想现在切换到那个拉取请求并开始修复吗", " ", e, "?"))
         }
         renderCheckRunJobs() {
             return b.createElement(aS, {
@@ -97344,7 +97344,7 @@ PERFORMANCE OF THIS SOFTWARE.
             const s = Lt.fromAccount(i)
               , a = await s.createRepository(o, t, n, r)
               , l = this.gitStoreCache.get(e);
-            return await l.performFailableOperation(()=>ld(e, "原点", a.clone_url)),
+            return await l.performFailableOperation(()=>ld(e, "origin", a.clone_url)),
             await l.loadRemotes(),
             l.tip.kind === cr.Valid && await this.performPush(e, i),
             this.repositoryWithRefreshedGitHubRepository(e)
