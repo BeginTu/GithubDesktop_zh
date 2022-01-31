@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnButtonStartApp", "OnButtonStartApp\OnButtonStartApp.csproj", "{EDCF62DD-3581-4DAF-ACC5-4CA2DF5C8C2F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDCF62DD-3581-4DAF-ACC5-4CA2DF5C8C2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDCF62DD-3581-4DAF-ACC5-4CA2DF5C8C2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDCF62DD-3581-4DAF-ACC5-4CA2DF5C8C2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDCF62DD-3581-4DAF-ACC5-4CA2DF5C8C2F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3C3A02C9-878D-4C1F-92A2-30875F7B8F0C}
+	EndGlobalSection
+EndGlobal
