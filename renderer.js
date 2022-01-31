@@ -71151,7 +71151,7 @@ PERFORMANCE OF THIS SOFTWARE.
             if (r.files.kind !== io.Loaded)
                 return null;
             const i = r.files.files.length
-              , o = b.createElement(b.Fragment, null, "你有 ", i, " ", 1 === i ? "change" : "changes", " in progress that you have not yet committed.")
+              , o = b.createElement(b.Fragment, null, "你有 ", i, " ","个文件有改动。", "并且正在进行中，但您尚未提交。")
               , s = b.createElement(b.Fragment, null, "当存储存在时，在左侧的“更改”选项卡底部访问它。")
               , a = "toggle-stashed-changes"
               , l = this.getMenuItemInfo(a);
